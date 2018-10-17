@@ -28,6 +28,7 @@ class Hood(models.Model):
         return self.name
 
 class Resident(models.Model):
+    pic = models.ImageField(upload_to='images/')
     name = models.ForeignKey(User,on_delete=models.CASCADE)
     id_number = models.IntegerField(default=0)
     email=models.EmailField()
