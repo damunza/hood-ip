@@ -8,4 +8,5 @@ def home(request):
     '''
     returns the homepage of the application
     '''
-    return render(request, 'index.html')
+    residence = Hood.objects.all
+    return render(request, 'index.html', {'content': residence})

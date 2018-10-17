@@ -1,1 +1,21 @@
-<h1>Hi Dan</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="card-deck">
+      {% for con in content %}
+      <div class="card" style="width:50%; background-color:#87e598; ">
+        <div class="card-body">
+          <h4>
+            <b>Residence: {{con.name}}</b>
+          </h4>
+          <p>
+            <b>Location:</b>{{con.get_location_display}}
+          </p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+</div>
+{% endblock %}
