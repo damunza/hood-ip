@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light" style="background: linear-gradient(to right, #55d6ed 20%, #66ff33 100%);">
+  <a href="{% url 'home' %}" class="navbar-brand">DansHood</a>
+  <div class="col-md-6 col-sm-6">
+    {% if user.is_authenticated %}
+    <ul class="navbar-nav mr-auto d-flex justify-content-between">
+      <li class="nav-item">
+        <a href="{% url 'home'%}" class="nav-link">Residences</a>
+      </li>
+      <li class="nav-item">
+        <a href="/profile/{{user.username}}" class="nav-link">Personal Info</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a href="#" class="dropdown-toggle btn btn-default nav-link" data-toggle="dropdown" role="button" aria-expanded="false">Account</a>
+        <ul class="dropdown-menu" role="menu">
+          <li></li>
+          <li>
+          <a href="/accounts/password/change">Change Password</a>
+        </li>
+        <li>
+          <a href="/logout">Logout</a>
+        </li>
+      </ul>
+    </li>
+    <form class="form-inline my-2 my-lg-0" action="#" method="get">
+    <input type="search" name="project" placeholder="Search" aria-label="Search" class="form-control container-fluid">
+    <button type="submit" name="button" class="btn" style="border-radius:8px; background-color:#55d6ed;">Search</button>
+  </form>
+  </ul>
+  {% else %}
+  <li>
+    <a class='btn btn-default' href="/accounts/login">Login</a>
+  </li>
+
+  {% endif %}
+
+  </div>
+
+</nav>
