@@ -27,5 +27,12 @@ class Hood(models.Model):
     def __str__(self):
         return self.name
 
+class Resident(models.Model):
+    name = models.ForeignKey(User,on_delete=models.CASCADE)
+    id_number = models.IntegerField(default=0)
+    email=models.EmailField()
+    home = models.ForeignKey(Hood, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.name
 
