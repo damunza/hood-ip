@@ -18,10 +18,10 @@ class Hood(models.Model):
         (2, 'Kajiado'),
         (3, 'Mombasa'),
         (4, 'Kilifi'),
-        (5, 'kiambu'),
+        (5, 'Kiambu'),
     )
     name= models.CharField(max_length=50)
-    location = models.CharField(max_length=50, choices=location_choices)
+    location = models.IntegerField(choices=location_choices)
     occupants = models.PositiveIntegerField(default=0)
 
     def __str__(self):
@@ -35,5 +35,5 @@ class Resident(models.Model):
     home = models.ForeignKey(Hood, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.name.username
 
