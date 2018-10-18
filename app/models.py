@@ -51,6 +51,7 @@ class Service(models.Model):
     area = models.ForeignKey(Hood, on_delete=models.CASCADE)
     type = models.CharField(max_length=50)
     name = models.CharField(max_length=50)
+    contact = models.IntegerField(default=0)
 
     def __str__(self):
         return self.type
@@ -60,4 +61,15 @@ class Service(models.Model):
         service = Service.objects.filter(area__name__icontains= jina)
         return service
 
+class Event(models.Model):
+    affected = models.CharField(max_length=60)
+    description= models.TextField()
+    area = models.ForeignKey(Hood, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.affected
+
+    @classmethod
+    def get_event(cls,jina):
+        news = Event.objects.filter(area__name__icontains=jina)
+        return news
