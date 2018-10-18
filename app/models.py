@@ -37,6 +37,11 @@ class Resident(models.Model):
     def __str__(self):
         return self.name.username
 
+    @classmethod
+    def get_human(cls,jina):
+        human= Resident.objects.filter(name__username__icontains = jina)
+        return human
+
 class Service(models.Model):
     area = models.ForeignKey(Hood, on_delete=models.CASCADE)
     type = models.CharField(max_length=50)

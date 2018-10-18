@@ -10,3 +10,7 @@ def home(request):
     '''
     residence = Hood.objects.all
     return render(request, 'index.html', {'content': residence})
+
+@login_required(login_url='/accounts/login/')
+def profile(request):
+
