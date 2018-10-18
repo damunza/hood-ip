@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="row">
-  <div class="col-md-2 col-sm-2 col-lg-2">
+  <div class="col-md-4 col-sm-4 col-lg-4">
     {% for con in content %}
     <div class="card" style="margin-top:150px; background-color:#55d6ed;">
       <div class="card-header">
@@ -12,7 +12,7 @@
       </div>
       <div class="card-body">
         <p>
-          <b>Location:</b> {{con.location}} county
+          <b>Location:</b> {{con.get_location_display}} county
         </p>
         <p>
           <b>Population:</b> {{con.occupants}}
@@ -23,13 +23,13 @@
     </div>
     {% endfor %}
   </div>
-  <div class="col-md-5 col-sm-5 col-lg-5">
+  <div class="col-md-4 col-sm-4 col-lg-4">
     <h3 style="color:#66ff33;">
       <b>Businesses</b>
     </h3>
     {% for con in content %}
-    {% if con.jirani %}
-      {% for item in con.jirani %}
+    {% if con.jirani.all %}
+      {% for item in con.jirani.all %}
         <div class="card">
           <div class="card-body">
             <h5>
@@ -50,8 +50,9 @@
     </h4>
     <a href="#" class="btn btn-md btn-info">Add</a>
     {% endif %}
+    {% endfor %}
   </div>
-  <div class="col-md-5 col-sm-5 col-lg-5">
+  <div class="col-md-4 col-sm-4 col-lg-4">
     <h3 style="color:#55d6ed;">
       <b>Services</b>
     </h3>
