@@ -37,3 +37,10 @@ class Resident(models.Model):
     def __str__(self):
         return self.name.username
 
+class Service(models.Model):
+    area = models.ForeignKey(Hood, on_delete=models.CASCADE)
+    type = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.type
