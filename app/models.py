@@ -54,3 +54,10 @@ class Service(models.Model):
 
     def __str__(self):
         return self.type
+
+    @classmethod
+    def get_service(cls,jina):
+        service = Service.objects.filter(area__name__icontains= jina)
+        return service
+
+

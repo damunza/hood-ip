@@ -40,3 +40,9 @@ def new_resident(request, operation, name):
 
     return render(request, 'new_being.html', {'form': form, 'content': home})
 
+@login_required(login_url='/accounts/login/')
+def residence(request,jina):
+    area = Hood.get_hood(jina=jina)
+    service = Service.get_service(jina=jina)
+
+    return render(request, 'area.html', {'content': area, 'addon': service, 'title': area})
