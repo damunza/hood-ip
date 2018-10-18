@@ -4,7 +4,7 @@
 <div class="container">
     <div class="card-deck" style="margin-top:10px;">
       {% for con in content %}
-      <div class="card" style="width:50%; background-color:#87e598; ">
+      <div class="card" style="background-color:#87e598;width:50%; ">
         <div class="card-body">
           <h4>
             <b>Residence: {{con.name}}</b>
@@ -12,10 +12,16 @@
           <p>
             <b>Location:</b>{{con.get_location_display}}
           </p>
+          <p>
+            <b>Population:</b>{{con.occupants}}
+          </p>
         </div>
+        <div class="card-footer">
+          <a href="#" class="btn btn-md btn-info">Join</a>
+          </div>
+        </div>
+        {% endfor %}
       </div>
-      {% endfor %}
-    </div>
 
-</div>
+    </div>
 {% endblock %}
