@@ -16,3 +16,6 @@ def profile(request,name):
     human = Resident.get_human(jina=name)
 
     return render(request, 'profile.html', {'content': human})
+
+
+
