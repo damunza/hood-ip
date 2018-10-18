@@ -17,7 +17,7 @@
           </p>
         </div>
         <div class="card-footer">
-          <a href="#" class="btn btn-md btn-info">Join</a>
+          <a href="{% url 'new_being' operation='join' name=con.name %}" id="join" class="btn btn-md btn-info">Join</a>
           </div>
         </div>
         {% endfor %}

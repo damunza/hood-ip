@@ -37,7 +37,5 @@ def new_resident(request, operation, name):
         hood.occupants +=1
         hood.save()
 
-        return redirect('home')
-
     return render(request, 'new_being.html', {'form': form})
 
