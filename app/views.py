@@ -12,5 +12,7 @@ def home(request):
     return render(request, 'index.html', {'content': residence})
 
 @login_required(login_url='/accounts/login/')
-def profile(request):
+def profile(request,name):
+    human = Resident.get_human(jina=name)
 
+    return render(request, 'profile.html', {'content': human})
