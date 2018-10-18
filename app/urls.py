@@ -4,9 +4,10 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
-    url(r'^$',views.home, name='home'),
+    url(r'^$', views.home, name='home'),
     url(r'^profile/(\w+)', views.profile, name='profile'),
     url(r'^add/(?P<operation>.+)/(?P<name>\w+)', views.new_resident, name='new_being'),
+    url(r'^area/(\w+)', views.residence, name='area')
 
 ]
 
