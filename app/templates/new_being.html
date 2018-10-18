@@ -12,13 +12,14 @@
     {% endblock %}
   </head>
   <body>
-    <form  action="{%url 'new_being'%}" method="post" enctype="multipart/form-data">
+    {% for con in content %}
+    <form  action="{%url 'new_being' operation='join' name=con.name %}" method="post" enctype="multipart/form-data">
     {%csrf_token%}
 
     {% bootstrap_form form%}
     <input type="submit" class="btn btn-primary btn-md" value="edit">
   </form>
-
+  {% endfor %}
    {% block scripts %}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   {% bootstrap_javascript %}

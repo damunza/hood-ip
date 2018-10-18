@@ -22,6 +22,7 @@ def profile(request,name):
 def new_resident(request, operation, name):
     current_user = request.user
     hood = get_object_or_404(Hood, name=name)
+    home = Hood.get_hood(jina=name)
     if request.method == 'POST':
         form = NewResidentForm(request.POST, request.FILES)
         if form.is_valid():
@@ -37,5 +38,5 @@ def new_resident(request, operation, name):
         hood.occupants +=1
         hood.save()
 
-    return render(request, 'new_being.html', {'form': form})
+    return render(request, 'new_being.html', {'form': form, 'content': home})
 

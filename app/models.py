@@ -27,6 +27,11 @@ class Hood(models.Model):
     def __str__(self):
         return self.name
 
+    @classmethod
+    def get_hood(cls,jina):
+        home = Hood.objects.filter(name__icontains=jina)
+        return home
+
 class Resident(models.Model):
     pic = models.ImageField(upload_to='images/')
     name = models.ForeignKey(User,on_delete=models.CASCADE)
