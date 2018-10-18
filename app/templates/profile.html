@@ -3,11 +3,11 @@
 {% block content %}
 <div class="container">
   {% if content %}
-    <h4>
+    <h4 style="text-align:center;">
       <b style="color:blue;">Visible to you alone</b>
     </h4>
     {% for con in content %}
-    <div class="card" style="margin-right:25%; border:hidden;">
+    <div class="card" style="margin-left:10%; margin-right: 10%; border:hidden;">
       <img class="img-fluid card-img-top" src="{{con.pic.url}}" alt="">
       <div class="card-body">
         <p>
