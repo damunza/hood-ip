@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-2 col-sm-2 col-lg-2">
+    {% for con in content %}
+    <div class="card" style="margin-top:150px; background-color:#55d6ed;">
+      <div class="card-header">
+        <h4 style="text-align:center;">
+          <b>Residence: {{con.name}}</b>
+        </h4>
+      </div>
+      <div class="card-body">
+        <p>
+          <b>Location:</b> {{con.location}} county
+        </p>
+        <p>
+          <b>Population:</b> {{con.occupants}}
+        </p>
+        <a href="#" class="btn btn-md btn-info">Add Business</a>
+        <a href="#" class="btn btn-md btn-info">Add Service</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="col-md-5 col-sm-5 col-lg-5">
+    <h3 style="color:#66ff33;">
+      <b>Businesses</b>
+    </h3>
+    {% for con in content %}
+    {% if con.jirani %}
+      {% for item in con.jirani %}
+        <div class="card">
+          <div class="card-body">
+            <h5>
+              <b>Name:</b> {{item.business_name}}
+            </h5>
+            <p>
+              <b>Owner:</b> {{item.owner}}
+            </p>
+            <p>
+              <b>Email</b> {{item.email}}
+            </p>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+    <h4 style="text-align:center;">
+      <b>No businesses yet click the button to be the first</b>
+    </h4>
+    <a href="#" class="btn btn-md btn-info">Add</a>
+    {% endif %}
+  </div>
+  <div class="col-md-5 col-sm-5 col-lg-5">
+    <h3 style="color:#55d6ed;">
+      <b>Services</b>
+    </h3>
+    {% if addon %}
+    {% for add in addon %}
+    <div class="card">
+      <div class="card-body">
+        <h4>
+          <b>Type:</b> {{add.type}}
+        </h4>
+        <p>
+          <b>Name:</b> {{add.name}}
+        </p>
+      </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <h4 style="color:red;">No registered services yet</h4>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
