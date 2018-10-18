@@ -5,6 +5,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$',views.home, name='home'),
+    url(r'^profile/(\w+)', views.profile, name='profile')
 ]
 
 if settings.DEBUG:
