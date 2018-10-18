@@ -19,9 +19,9 @@ def profile(request,name):
     return render(request, 'profile.html', {'content': human})
 
 @login_required(login_url='/accounts/login/')
-def new_resident(request, operation, town):
+def new_resident(request, operation, name):
     current_user = request.user
-    hood = get_object_or_404(Hood, name=town)
+    hood = get_object_or_404(Hood, name=name)
     if request.method == 'POST':
         form = NewResidentForm(request.POST, request.FILES)
         if form.is_valid():
