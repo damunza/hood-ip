@@ -18,7 +18,7 @@ class NewService(forms.ModelForm):
 
 class NewEvent(forms.ModelForm):
     class Meta:
-        model = Service
+        model = Event
         exclude = ['area']
 
 class NewHoodForm(forms.ModelForm):
