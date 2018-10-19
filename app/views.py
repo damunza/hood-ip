@@ -101,3 +101,21 @@ def new_service(request,jina):
 
     return render(request, 'service.html', {'form': form, 'content': home})
 
+@login_required(login_url='/accounts/login/')
+def new_event(request,jina):
+    home = Hood.get_hood(jina=jina)
+    area = get_object_or_404(Hood, name=jina)
+    if request.method == 'POST':
+        form = NewEvent(request.POST, request.FILES)
+        if form.is_valid():
+            event = form.save(commit=False)
+            event.area = area
+            event.save()
+
+        return redirect('home')
+
+    else:
+        form = NewEvent()
+
+    return render(request, 'event.html', {'form': form, 'content': home})
+
