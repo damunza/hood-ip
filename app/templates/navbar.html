@@ -21,9 +21,9 @@
         </li>
       </ul>
     </li>
-    <form class="form-inline my-2 my-lg-0" action="#" method="get">
-    <input type="search" name="project" placeholder="Search" aria-label="Search" class="form-control container-fluid">
-    <button type="submit" name="button" class="btn" style="border-radius:8px; background-color:#55d6ed;">Search</button>
+    <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="get">
+    <input type="search" name="hood" placeholder="Search Residence" aria-label="Search" class="form-control container-fluid">
+    <button type="submit" class="btn" style="border-radius:8px; background-color:#55d6ed;">Search</button>
   </form>
   </ul>
   {% else %}
