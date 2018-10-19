@@ -10,3 +10,8 @@ class NewBusiness(forms.ModelForm):
     class Meta:
         model = Business
         exclude = ['owner', 'neighbourhood']
+
+class NewService(forms.ModelForm):
+    class Meta:
+        model = Service
+        exclude = ['area']
