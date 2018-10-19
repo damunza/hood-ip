@@ -99,5 +99,5 @@ def new_service(request,jina):
     else:
         form = NewService()
 
-    return render(request, 'bizna.html', {'form': form, 'content': home})
+    return render(request, 'service.html', {'form': form, 'content': home})
 
