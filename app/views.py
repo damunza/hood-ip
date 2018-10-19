@@ -119,3 +119,17 @@ def new_event(request,jina):
 
     return render(request, 'event.html', {'form': form, 'content': home})
 
+@login_required(login_url='/accounts/login/')
+def new_hood(request):
+    if request.method == 'POST':
+        form = NewHoodForm(request.POST, request.FILES)
+        if form.is_valid():
+            hood = form.save(commit=False)
+            hood.save()
+
+        return redirect('home')
+
+    else:
+        form = NewHoodForm()
+
+    return render(request, 'pop.html', {'form': form})
