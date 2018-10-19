@@ -17,11 +17,30 @@
         <p>
           <b>Population:</b> {{con.occupants}}
         </p>
-        <a href="#" class="btn btn-md btn-info">Add Business</a>
-        <a href="#" class="btn btn-md btn-info">Add Service</a>
+        <a href="#" class="btn btn-md btn-info">Add Business</a><br>
+        <a href="#" class="btn btn-md" style="background-color:#66ff33;">Add Service</a>
+        <a href="#" class="btn btn-md btn-danger">Add Incident</a>
       </div>
-    </div>
+    </div><br>
     {% endfor %}
+    {% if news %}
+    {% for new in news %}
+    <div class="card">
+      <div class="card-body">
+        <h4>
+          <b>Household:</b> {{new.affected}}
+        </h4>
+        <p>
+          <b>Description:</b> {{add.description}}
+        </p>
+      </div>
+    </div><br>
+    {% endfor %}
+    {% else %}
+    <h4 style="color:red">
+      <b>No Incidents</b>
+    </h4>
+    {% endif %}
   </div>
   <div class="col-md-4 col-sm-4 col-lg-4">
     <h3 style="color:#66ff33;">
@@ -42,7 +61,7 @@
               <b>Email</b> {{item.email}}
             </p>
           </div>
-        </div>
+        </div><br>
       {% endfor %}
     {% else %}
     <h4 style="text-align:center;">
@@ -66,8 +85,11 @@
         <p>
           <b>Name:</b> {{add.name}}
         </p>
+        <p>
+          <b>Contact:</b> {{add.contact}}
+        </p>
       </div>
-    </div>
+    </div><br>
     {% endfor %}
     {% else %}
     <h4 style="color:red;">No registered services yet</h4>

@@ -44,5 +44,6 @@ def new_resident(request, operation, name):
 def residence(request,jina):
     area = Hood.get_hood(jina=jina)
     service = Service.get_service(jina=jina)
+    news = Event.get_event(jina=jina)
 
-    return render(request, 'area.html', {'content': area, 'addon': service})
+    return render(request, 'area.html', {'content': area, 'addon': service, 'news':news})
