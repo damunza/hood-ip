@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^service/(\w+)', views.new_service, name='service'),
     url(r'^event/(\w+)', views.new_event, name='event'),
     url(r'^newhood$', views.new_hood, name='esto'),
+    url(r'^search/', views.search, name='search'),
 
 ]
 

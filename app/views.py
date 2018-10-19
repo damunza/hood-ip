@@ -133,3 +133,14 @@ def new_hood(request):
         form = NewHoodForm()
 
     return render(request, 'pop.html', {'form': form})
+
+@login_required(login_url='/accounts/login/')
+def find_hood(request):
+    if 'hood' in request.GET and request.GET['hood']:
+        jina = request.GET.get('hood')
+        hood = Hood.get_hood(jina=jina)
+
+        return render(request, 'search.html', {'title': jina, 'content': hood})
+
+    else:
+        return render(request, 'search.html')
