@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^add/(?P<operation>.+)/(?P<name>\w+)', views.new_resident, name='new_being'),
     url(r'^area/(\w+)', views.residence, name='area'),
     url(r'^business/(\w+)', views.new_business, name='bizna'),
+    url(r'^service/(\w+)', views.new_service, name='service'),
 
 ]
 
