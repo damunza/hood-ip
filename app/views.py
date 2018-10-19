@@ -82,22 +82,22 @@ def new_business(request,jina):
         form = NewBusiness()
 
     return render(request, 'bizna.html', {'form': form, 'content': home})
-#
-# @login_required(login_url='/accounts/login/')
-# def new_service(request,jina):
-#     home = Hood.get_hood(jina=jina)
-#     area = get_object_or_404(Hood, name=jina)
-#     if request.method == 'POST':
-#         form = NewBusiness(request.POST, request.FILES)
-#         if form.is_valid():
-#             business = form.save(commit=False)
-#             business.area = area
-#             business.save()
-#
-#         return redirect('home')
-#
-#     else:
-#         form = NewBusiness()
-#
-#     return render(request, 'bizna.html', {'form': form, 'content': home})
+
+@login_required(login_url='/accounts/login/')
+def new_service(request,jina):
+    home = Hood.get_hood(jina=jina)
+    area = get_object_or_404(Hood, name=jina)
+    if request.method == 'POST':
+        form = NewService(request.POST, request.FILES)
+        if form.is_valid():
+            service = form.save(commit=False)
+            service.area = area
+            service.save()
+
+        return redirect('home')
+
+    else:
+        form = NewService()
+
+    return render(request, 'bizna.html', {'form': form, 'content': home})
 
