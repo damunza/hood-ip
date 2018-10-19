@@ -47,3 +47,37 @@ def residence(request,jina):
     news = Event.get_event(jina=jina)
 
     return render(request, 'area.html', {'content': area, 'addon': service, 'news':news})
+
+    home = Hood.get_hood(jina=name)
+    if request.method == 'POST':
+        form = NewResidentForm(request.POST, request.FILES)
+        if form.is_valid():
+            resident = form.save(commit=False)
+            resident.name = current_user
+            resident.home = hood
+            resident.save()
+        return redirect('home')
+    else:
+        form = NewResidentForm()
+
+    if operation == 'join':
+        hood.occupants +=1
+
+@login_required(login_url='/accounts/login/')
+def new_business(request,jina):
+    current_user = request.user
+    area = get_object_or_404(Hood, name=jina)
+    if request.method == 'POST':
+        form = NewBusiness(request.POST, request.FILES)
+        if form.is_valid():
+            business = form.save(commit=False)
+            business.owner = current_user
+            business.neighbourhood = area
+            business.save()
+
+        return redirect('home')
+
+    else:
+        form = NewBusiness()
+
+    return render(request, 'bizna.html', {'form': form})
