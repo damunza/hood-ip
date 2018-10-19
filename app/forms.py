@@ -15,3 +15,13 @@ class NewService(forms.ModelForm):
     class Meta:
         model = Service
         exclude = ['area']
+
+class NewEvent(forms.ModelForm):
+    class Meta:
+        model = Service
+        exclude = ['area']
+
+class NewHood(forms.ModelForm):
+    class Meta:
+        model = Hood
+        exclude = ['occupants']
