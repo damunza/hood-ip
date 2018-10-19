@@ -66,6 +66,7 @@ def residence(request,jina):
 @login_required(login_url='/accounts/login/')
 def new_business(request,jina):
     current_user = request.user
+    home = Hood.get_hood(jina=jina)
     area = get_object_or_404(Hood, name=jina)
     if request.method == 'POST':
         form = NewBusiness(request.POST, request.FILES)
@@ -80,4 +81,23 @@ def new_business(request,jina):
     else:
         form = NewBusiness()
 
-    return render(request, 'bizna.html', {'form': form})
+    return render(request, 'bizna.html', {'form': form, 'content': home})
+#
+# @login_required(login_url='/accounts/login/')
+# def new_service(request,jina):
+#     home = Hood.get_hood(jina=jina)
+#     area = get_object_or_404(Hood, name=jina)
+#     if request.method == 'POST':
+#         form = NewBusiness(request.POST, request.FILES)
+#         if form.is_valid():
+#             business = form.save(commit=False)
+#             business.area = area
+#             business.save()
+#
+#         return redirect('home')
+#
+#     else:
+#         form = NewBusiness()
+#
+#     return render(request, 'bizna.html', {'form': form, 'content': home})
+

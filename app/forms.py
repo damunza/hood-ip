@@ -21,7 +21,7 @@ class NewEvent(forms.ModelForm):
         model = Service
         exclude = ['area']
 
-class NewHood(forms.ModelForm):
+class NewHoodForm(forms.ModelForm):
     class Meta:
         model = Hood
         exclude = ['occupants']
