@@ -2,9 +2,12 @@
 
 {% block content %}
 <div class="container">
-    <div class="card-deck" style="margin-top:10px;">
+  <div class="d-flex justify-content-center" style="margin-top:10px;">
+    <a href="/newhood" class="btn btn-md" style="background-color:#55d6ed;">Add Residence</a>
+  </div>
+    <div class="row" style="margin-top:10px;">
       {% for con in content %}
-      <div class="card" style="background-color:#87e598;width:50%; ">
+      <div class="card" style="background-color:#87e598;width:48%; margin-bottom: 10px; margin-right:5px;">
         <div class="card-body">
           <h4>
             <b>Residence: {{con.name}}</b>
