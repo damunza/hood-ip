@@ -144,3 +144,15 @@ def find_hood(request):
 
     else:
         return render(request, 'search.html')
+
+@login_required(login_url='/accounts/login/')
+def change(request,name):
+    if 'home' in request.GET and request.GET['home']:
+        place = request.GET.get('home')
+        new = Resident.change_hood(iden= name, hood=place)
+        new.save()
+
+        return render(request, 'gum.html')
+
+    else:
+        return render(request, 'gum.html')

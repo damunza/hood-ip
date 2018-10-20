@@ -48,8 +48,8 @@ class Resident(models.Model):
         return human
 
     @classmethod
-    def change_hood(cls, id, hood):
-        person = Resident.objects.filter(id = id)
+    def change_hood(cls, iden, hood):
+        person = Resident.objects.filter(name__username = iden)
         person.update(home__name = hood)
         return person
 

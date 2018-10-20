@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^event/(\w+)', views.new_event, name='event'),
     url(r'^newhood$', views.new_hood, name='esto'),
     url(r'^search/', views.find_hood, name='search'),
+    url(r'^change/(\w+)/', views.change, name='change'),
 
 ]
 
