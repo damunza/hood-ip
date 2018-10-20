@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<form class="form-inline my-2 my-lg-0" action="/change/{{user.username}}" method="get">
+<input type="search" name="home" placeholder="New Residence" aria-label="Search" class="form-control container-fluid">
+<button type="submit" class="btn" style="border-radius:8px; background-color:#55d6ed;">Save Changes</button>
+</form>
+
+
+
+{% endblock %}

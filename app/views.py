@@ -150,7 +150,7 @@ def change(request,name):
     if 'home' in request.GET and request.GET['home']:
         place = request.GET.get('home')
         new = Resident.change_hood(iden= name, hood=place)
-        new.save()
+        print(new)
 
         return render(request, 'gum.html')
 
