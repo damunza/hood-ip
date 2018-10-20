@@ -47,6 +47,12 @@ class Resident(models.Model):
         human= Resident.objects.filter(name__username__icontains = jina)
         return human
 
+    @classmethod
+    def change_hood(cls, id, hood):
+        person = Resident.objects.filter(id = id)
+        person.update(home__name = hood)
+        return person
+
 class Service(models.Model):
     area = models.ForeignKey(Hood, on_delete=models.CASCADE)
     type = models.CharField(max_length=50)
