@@ -10,7 +10,8 @@ def home(request):
     returns the homepage of the application
     '''
     residence = Hood.objects.all
-    return render(request, 'index.html', {'content': residence})
+    person = Resident.get_human(jina=request.user)
+    return render(request, 'index.html', {'content': residence, 'eye':person})
 
 @login_required(login_url='/accounts/login/')
 def profile(request,name):
@@ -47,21 +48,6 @@ def residence(request,jina):
     news = Event.get_event(jina=jina)
 
     return render(request, 'area.html', {'content': area, 'addon': service, 'news':news})
-
-    home = Hood.get_hood(jina=name)
-    if request.method == 'POST':
-        form = NewResidentForm(request.POST, request.FILES)
-        if form.is_valid():
-            resident = form.save(commit=False)
-            resident.name = current_user
-            resident.home = hood
-            resident.save()
-        return redirect('home')
-    else:
-        form = NewResidentForm()
-
-    if operation == 'join':
-        hood.occupants +=1
 
 @login_required(login_url='/accounts/login/')
 def new_business(request,jina):
@@ -152,7 +138,9 @@ def change(request,name):
         new = Resident.change_hood(iden= name, hood=place)
         print(new)
 
-        return render(request, 'gum.html')
+        return redirect('home')
 
     else:
         return render(request, 'gum.html')
+
+

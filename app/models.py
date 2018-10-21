@@ -50,7 +50,7 @@ class Resident(models.Model):
     @classmethod
     def change_hood(cls, iden, hood):
         person = Resident.objects.filter(name__username__icontains = iden)
-        person.update(home__name = hood)
+        person.update(home = hood)
         for object in person:
             object.save()
         return person
