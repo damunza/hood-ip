@@ -64,3 +64,16 @@ class HoodTest(TestCase):
         self.area.save()
         hood = Hood.get_hood('a')
         self.assertTrue(len(hood)>0)
+
+class BusinessTest(TestCase):
+
+    def setUp(self):
+        self.area = Hood.objects.create(id=1, name='a', location=1)
+        self.user = User.objects.create(id=1, username='a')
+        self.business = Business.objects.create(business_name='a',
+                                                email='a@gmail.com',
+                                                owner=self.user,
+                                                neighbourhood=self.area)
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.business,Business))
